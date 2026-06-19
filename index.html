@@ -1,395 +1,1080 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mahin Nandipa — Aerospace ML Engineer</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Mahin Nandipa — Aerospace × AI/ML Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=Inter:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
 <style>
-:root{--navy:#050C18;--navy2:#0A1628;--navy3:#0D1F3C;--blue:#2E5F9E;--blue2:#5B8DC8;--amber:#E87722;--amber2:#F5A623;--white:#F5F7FA;--muted:#8B9BB4;}
-*{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--navy);color:var(--white);overflow-x:hidden;}
-nav{position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(5,12,24,0.95);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,0.07);padding:14px 0;}
-.nav-inner{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;}
-.nav-brand{font-size:17px;font-weight:800;color:#fff;text-decoration:none;display:flex;align-items:center;gap:10px;}
-.nav-logo{width:34px;height:34px;border-radius:8px;background:linear-gradient(135deg,var(--blue),var(--amber));display:flex;align-items:center;justify-content:center;font-size:16px;position:relative;overflow:hidden;}
-.nav-logo::after{content:'';position:absolute;inset:0;background:conic-gradient(from 0deg,transparent 75%,rgba(245,166,35,.6) 90%,transparent);animation:radar 3s linear infinite;}
-@keyframes radar{to{transform:rotate(360deg);}}
-.nav-links{display:flex;gap:4px;}
-.nav-links a{color:var(--muted);text-decoration:none;font-size:13px;font-weight:500;padding:7px 14px;border-radius:8px;transition:.2s;}
-.nav-links a:hover{color:#fff;background:rgba(255,255,255,.07);}
-.nav-links a.cta{background:var(--amber);color:#fff!important;font-weight:700;}
-.hero{min-height:100vh;display:flex;align-items:center;padding:100px 24px 60px;position:relative;overflow:hidden;}
-.hero::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(46,95,158,0.06) 1px,transparent 1px),linear-gradient(90deg,rgba(46,95,158,0.06) 1px,transparent 1px);background-size:52px 52px;pointer-events:none;}
-.orb{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none;}
-.orb1{width:500px;height:500px;background:rgba(46,95,158,0.15);top:-100px;right:-100px;animation:float 9s ease-in-out infinite alternate;}
-.orb2{width:300px;height:300px;background:rgba(232,119,34,0.1);bottom:0;left:-80px;animation:float 7s ease-in-out infinite alternate-reverse;}
-@keyframes float{to{transform:translate(40px,30px) scale(1.08);}}
-.hero-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:2;width:100%;}
-.hero-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(46,95,158,0.2);border:1px solid rgba(46,95,158,0.4);border-radius:30px;padding:6px 16px;font-size:12px;color:var(--blue2);font-weight:600;margin-bottom:20px;letter-spacing:.5px;}
-.hero h1{font-size:clamp(36px,5vw,56px);font-weight:900;line-height:1.05;letter-spacing:-2px;margin-bottom:16px;}
-.hero h1 .accent{background:linear-gradient(135deg,var(--amber),var(--amber2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-.hero-sub{font-size:15px;color:var(--muted);line-height:1.7;margin-bottom:28px;}
-.hero-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px;}
-.hero-tag{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:5px 14px;font-size:12px;color:var(--blue2);font-weight:600;}
-.hero-btns{display:flex;gap:12px;flex-wrap:wrap;}
-.btn-p{background:linear-gradient(135deg,var(--blue),#1A3560);color:#fff;padding:12px 26px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:700;display:inline-flex;align-items:center;gap:8px;transition:.25s;}
-.btn-p:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(46,95,158,0.4);color:#fff;}
-.btn-g{background:rgba(255,255,255,.07);color:#fff;padding:12px 26px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:600;display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.12);transition:.25s;}
-.btn-g:hover{background:rgba(255,255,255,.12);color:#fff;transform:translateY(-2px);}
-.hero-right{display:flex;flex-direction:column;align-items:center;gap:20px;}
-.avatar-ring{width:220px;height:220px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--amber));padding:3px;}
-.avatar-inner{width:100%;height:100%;border-radius:50%;background:var(--navy2);display:flex;align-items:center;justify-content:center;font-size:64px;font-weight:900;}
-.hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%;}
-.hs{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:14px;text-align:center;}
-.hs .n{font-size:22px;font-weight:900;color:var(--amber2);}
-.hs .l{font-size:10px;color:var(--muted);margin-top:3px;text-transform:uppercase;letter-spacing:.6px;}
-section{padding:90px 24px;}
-.si{max-width:1100px;margin:0 auto;}
-.sl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--amber);margin-bottom:10px;}
-.st{font-size:clamp(26px,4vw,40px);font-weight:800;letter-spacing:-1px;margin-bottom:14px;}
-.ss{font-size:15px;color:var(--muted);max-width:560px;line-height:1.7;margin-bottom:44px;}
-.alt{background:var(--navy2);}
-/* PROJECTS */
-.pg{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;}
-.pc{background:var(--navy2);border:1px solid rgba(255,255,255,.07);border-radius:14px;overflow:hidden;transition:.25s;}
-.pc:hover{border-color:var(--blue);transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,.4);}
-.pct{padding:24px;border-bottom:1px solid rgba(255,255,255,.06);}
-.pa{height:3px;margin:-24px -24px 20px;border-radius:14px 14px 0 0;}
-.pi{font-size:30px;margin-bottom:10px;}
-.pn{font-size:16px;font-weight:800;color:#fff;margin-bottom:7px;}
-.pd{font-size:13px;color:var(--muted);line-height:1.6;}
-.pm{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:14px;}
-.pmi{background:rgba(255,255,255,.04);border-radius:8px;padding:8px;text-align:center;}
-.pmi .v{font-size:14px;font-weight:800;color:var(--amber2);}
-.pmi .lb{font-size:10px;color:var(--muted);margin-top:2px;}
-.pcb{padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;}
-.ptags{display:flex;gap:5px;flex-wrap:wrap;}
-.ptag{background:rgba(255,255,255,.06);border-radius:5px;padding:3px 8px;font-size:11px;color:var(--muted);}
-.plinks{display:flex;gap:7px;}
-.pl{background:var(--blue);color:#fff;padding:6px 14px;border-radius:7px;text-decoration:none;font-size:12px;font-weight:600;transition:.2s;display:flex;align-items:center;gap:5px;}
-.pl:hover{background:var(--blue2);color:#fff;}
-.pl.gh{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);}
-/* SKILLS */
-.sg{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;}
-.sc{background:var(--navy3);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:22px;transition:.2s;}
-.sc:hover{border-color:var(--blue);transform:translateY(-2px);}
-.sc .si2{font-size:26px;margin-bottom:10px;}
-.sc .sct{font-size:14px;font-weight:700;color:#fff;margin-bottom:10px;}
-.stags{display:flex;flex-wrap:wrap;gap:5px;}
-.stag{background:rgba(46,95,158,.2);border:1px solid rgba(46,95,158,.3);border-radius:5px;padding:3px 9px;font-size:11px;color:var(--blue2);font-weight:600;}
-/* EXPERIENCE */
-.etl{position:relative;padding-left:24px;border-left:2px solid rgba(255,255,255,.08);}
-.ei{position:relative;padding:0 0 32px 24px;}
-.ei::before{content:'';position:absolute;left:-33px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--amber);border:2px solid var(--navy2);}
-.ed{font-size:11px;font-weight:700;color:var(--amber);text-transform:uppercase;letter-spacing:1px;margin-bottom:5px;}
-.er{font-size:16px;font-weight:800;color:#fff;margin-bottom:2px;}
-.ec{font-size:13px;color:var(--blue2);font-weight:600;margin-bottom:8px;}
-.edesc{font-size:13px;color:var(--muted);line-height:1.7;}
-.etag{display:inline-block;background:rgba(255,255,255,.05);border-radius:5px;padding:3px 8px;font-size:11px;color:var(--muted);margin:3px 3px 0 0;}
-/* EDU */
-.edc{background:var(--navy3);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:22px;margin-bottom:14px;transition:.2s;}
-.edc:hover{border-color:var(--blue);}
-.edi{font-size:28px;margin-bottom:10px;}
-.edd{font-size:15px;font-weight:700;color:#fff;margin-bottom:3px;}
-.eds{font-size:13px;color:var(--blue2);font-weight:600;margin-bottom:3px;}
-.edy{font-size:12px;color:var(--muted);}
-.edg{display:inline-block;background:rgba(245,166,35,.15);color:var(--amber2);border-radius:20px;padding:3px 12px;font-size:12px;font-weight:700;margin-top:8px;}
-/* CONTACT */
-.cc{background:var(--navy3);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:28px;}
-.cit{display:flex;align-items:center;gap:14px;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.05);}
-.cit:last-child{border:none;}
-.cii{width:38px;height:38px;border-radius:9px;background:rgba(46,95,158,.2);display:flex;align-items:center;justify-content:center;font-size:17px;color:var(--blue2);flex-shrink:0;}
-.cil{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;}
-.civ{font-size:13px;font-weight:600;color:#fff;margin-top:2px;}
-.civ a{color:var(--blue2);text-decoration:none;}
-.civ a:hover{color:var(--amber2);}
-.cf{display:flex;flex-direction:column;gap:13px;}
-.cf input,.cf textarea{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:#fff;border-radius:10px;padding:11px 13px;font-size:13px;outline:none;transition:.2s;font-family:inherit;width:100%;}
-.cf input:focus,.cf textarea:focus{border-color:var(--blue);}
-.cf input::placeholder,.cf textarea::placeholder{color:var(--muted);}
-.cf textarea{resize:vertical;min-height:110px;}
-.cf button{background:var(--amber);border:none;color:#fff;padding:12px;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;width:100%;transition:.2s;}
-.cf button:hover{background:var(--amber2);}
-footer{background:var(--navy);border-top:1px solid rgba(255,255,255,.06);padding:28px 24px;text-align:center;}
-footer p{font-size:12px;color:var(--muted);}
-footer a{color:var(--blue2);text-decoration:none;}
-@media(max-width:768px){
-  .hero-inner{grid-template-columns:1fr;text-align:center;}
-  .hero-right{order:-1;}
-  .avatar-ring{width:150px;height:150px;}
-  .avatar-inner{font-size:44px;}
-  .nav-links a:not(.cta){display:none;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#080C14;
+  --navy-2:#0D1220;
+  --navy-3:#131929;
+  --indigo:#6366F1;
+  --indigo-dim:#3D3F9E;
+  --indigo-glow:#818CF8;
+  --mint:#34D399;
+  --amber:#F59E0B;
+  --white:#E8EDF5;
+  --white-2:#B0BAD0;
+  --muted:#6B7A99;
+  --border:#1E2840;
+  --border-2:#2A3554;
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--navy);
+  color:var(--white);
+  font-family:'Inter',sans-serif;
+  font-size:15px;
+  line-height:1.7;
+  overflow-x:hidden;
+}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 5vw;height:60px;
+  background:rgba(8,12,20,0.85);
+  border-bottom:1px solid var(--border);
+  backdrop-filter:blur(12px);
+}
+.nav-logo{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:15px;font-weight:500;
+  color:var(--white);text-decoration:none;
+  letter-spacing:0.04em;
+}
+.nav-logo span{color:var(--indigo-glow)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{
+  font-size:13px;font-weight:400;color:var(--muted);
+  text-decoration:none;letter-spacing:0.03em;
+  transition:color 0.2s;
+}
+.nav-links a:hover{color:var(--white)}
+.nav-cta{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:12px;font-weight:500;
+  color:var(--indigo-glow);
+  border:1px solid var(--indigo-dim);
+  padding:6px 16px;border-radius:4px;
+  text-decoration:none;letter-spacing:0.05em;
+  transition:background 0.2s,color 0.2s;
+}
+.nav-cta:hover{background:var(--indigo);color:#fff;border-color:var(--indigo)}
+
+/* ── HERO ── */
+#hero{
+  position:relative;min-height:100vh;
+  display:flex;align-items:center;
+  padding:80px 5vw 60px;
+  overflow:hidden;
+}
+#star-canvas{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  z-index:0;pointer-events:none;
+}
+.hero-content{
+  position:relative;z-index:1;
+  max-width:680px;
+}
+.hero-eyebrow{
+  font-family:'Space Mono',monospace;
+  font-size:11px;color:var(--indigo-glow);
+  letter-spacing:0.18em;text-transform:uppercase;
+  margin-bottom:1.5rem;
+  display:flex;align-items:center;gap:10px;
+}
+.hero-eyebrow::before{
+  content:'';display:block;width:28px;height:1px;
+  background:var(--indigo-glow);
+}
+.hero-title{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:clamp(2.4rem,6vw,4.2rem);
+  font-weight:600;line-height:1.1;
+  letter-spacing:-0.02em;
+  margin-bottom:1.5rem;
+}
+.hero-title .line-2{color:var(--indigo-glow)}
+.hero-desc{
+  font-size:16px;color:var(--white-2);
+  max-width:540px;line-height:1.75;
+  margin-bottom:2.5rem;
+}
+.hero-tags{
+  display:flex;flex-wrap:wrap;gap:8px;
+  margin-bottom:2.5rem;
+}
+.tag{
+  font-family:'Space Mono',monospace;
+  font-size:11px;letter-spacing:0.06em;
+  color:var(--muted);
+  border:1px solid var(--border-2);
+  padding:4px 10px;border-radius:3px;
+  transition:color 0.2s,border-color 0.2s;
+}
+.tag:hover{color:var(--white-2);border-color:var(--indigo-dim)}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.btn-primary{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:13px;font-weight:500;
+  background:var(--indigo);color:#fff;
+  padding:11px 24px;border-radius:5px;
+  text-decoration:none;letter-spacing:0.03em;
+  transition:background 0.2s,transform 0.15s;
+}
+.btn-primary:hover{background:var(--indigo-glow);transform:translateY(-1px)}
+.btn-ghost{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:13px;font-weight:400;
+  color:var(--white-2);
+  border:1px solid var(--border-2);
+  padding:10px 22px;border-radius:5px;
+  text-decoration:none;letter-spacing:0.03em;
+  transition:border-color 0.2s,color 0.2s;
+}
+.btn-ghost:hover{border-color:var(--muted);color:var(--white)}
+.hero-stats{
+  position:absolute;bottom:48px;right:5vw;
+  display:flex;gap:2.5rem;z-index:1;
+}
+.stat{text-align:right}
+.stat-num{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:1.8rem;font-weight:600;
+  color:var(--white);letter-spacing:-0.02em;
+}
+.stat-num span{color:var(--indigo-glow)}
+.stat-label{
+  font-size:11px;color:var(--muted);
+  letter-spacing:0.06em;text-transform:uppercase;
+}
+
+/* ── SECTIONS ── */
+section{padding:80px 5vw}
+.section-label{
+  font-family:'Space Mono',monospace;
+  font-size:11px;color:var(--indigo-glow);
+  letter-spacing:0.18em;text-transform:uppercase;
+  margin-bottom:0.75rem;
+  display:flex;align-items:center;gap:10px;
+}
+.section-label::before{content:'';display:block;width:20px;height:1px;background:var(--indigo-glow)}
+.section-title{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:clamp(1.6rem,3.5vw,2.2rem);
+  font-weight:600;letter-spacing:-0.02em;
+  margin-bottom:3rem;
+  color:var(--white);
+}
+
+/* ── SSA TRILOGY FEATURE ── */
+#ssa{background:var(--navy-2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.trilogy-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:1px;
+  background:var(--border);
+  border:1px solid var(--border);
+  border-radius:8px;
+  overflow:hidden;
+}
+.trilogy-card{
+  background:var(--navy-3);
+  padding:2rem;
+  position:relative;
+  transition:background 0.2s;
+}
+.trilogy-card:hover{background:#161D2E}
+.trilogy-card.featured{
+  grid-column:1 / -1;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:2.5rem;
+  align-items:center;
+}
+.tc-badge{
+  font-family:'Space Mono',monospace;
+  font-size:10px;letter-spacing:0.12em;
+  text-transform:uppercase;
+  padding:3px 8px;border-radius:2px;
+  display:inline-block;margin-bottom:1rem;
+}
+.tc-badge.nexus{background:#1E1F5E;color:#818CF8}
+.tc-badge.explorer{background:#0F2E1E;color:#34D399}
+.tc-badge.astra{background:#2E1A06;color:#F59E0B}
+.tc-title{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:1.3rem;font-weight:600;
+  color:var(--white);margin-bottom:0.5rem;
+  letter-spacing:-0.01em;
+}
+.tc-sub{font-size:13px;color:var(--white-2);margin-bottom:1rem;line-height:1.6}
+.tc-modules{
+  display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.25rem;
+}
+.tc-mod{
+  font-family:'Space Mono',monospace;
+  font-size:10px;letter-spacing:0.04em;
+  color:var(--muted);border:1px solid var(--border-2);
+  padding:2px 7px;border-radius:2px;
+}
+.tc-link{
+  font-family:'Space Mono',monospace;
+  font-size:11px;color:var(--indigo-glow);
+  text-decoration:none;letter-spacing:0.05em;
+  display:inline-flex;align-items:center;gap:6px;
+}
+.tc-link:hover{color:#fff}
+.tc-link::after{content:'↗';font-size:10px}
+/* NEXUS visual side */
+.nexus-visual{
+  aspect-ratio:4/3;
+  background:var(--navy);
+  border:1px solid var(--border-2);
+  border-radius:6px;
+  position:relative;
+  overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+}
+.nexus-ring{
+  position:absolute;
+  border-radius:50%;
+  border:1px solid;
+  animation:orbit-spin linear infinite;
+}
+@keyframes orbit-spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.nexus-dot{
+  position:absolute;
+  width:5px;height:5px;
+  border-radius:50%;
+  top:-2.5px;left:50%;transform:translateX(-50%);
+}
+
+/* ── PROJECTS ── */
+#projects{background:var(--navy)}
+.projects-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:1px;
+  background:var(--border);
+  border:1px solid var(--border);
+  border-radius:8px;
+  overflow:hidden;
+}
+.proj-card{
+  background:var(--navy-2);
+  padding:1.75rem;
+  transition:background 0.2s;
+}
+.proj-card:hover{background:var(--navy-3)}
+.proj-header{
+  display:flex;align-items:flex-start;
+  justify-content:space-between;
+  margin-bottom:0.75rem;
+}
+.proj-icon{
+  font-size:1.1rem;
+  width:36px;height:36px;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--navy-3);border:1px solid var(--border-2);
+  border-radius:6px;
+  flex-shrink:0;
+}
+.proj-ext{
+  font-family:'Space Mono',monospace;
+  font-size:11px;color:var(--muted);
+}
+.proj-name{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:1.05rem;font-weight:500;
+  color:var(--white);margin-bottom:0.4rem;
+  letter-spacing:-0.01em;
+}
+.proj-desc{font-size:13px;color:var(--white-2);line-height:1.65;margin-bottom:1rem}
+.proj-stack{
+  display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem;
+}
+.proj-tag{
+  font-family:'Space Mono',monospace;
+  font-size:10px;letter-spacing:0.04em;
+  color:var(--muted);border:1px solid var(--border);
+  padding:2px 7px;border-radius:2px;
+}
+.proj-metric{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:11px;font-weight:500;
+  color:var(--mint);
+  padding:3px 8px;background:#0A2018;
+  border-radius:3px;display:inline-block;
+}
+.proj-links{
+  display:flex;gap:1rem;
+  margin-top:1.25rem;
+  padding-top:1rem;
+  border-top:1px solid var(--border);
+}
+.proj-links a{
+  font-family:'Space Mono',monospace;
+  font-size:11px;color:var(--muted);
+  text-decoration:none;letter-spacing:0.04em;
+  transition:color 0.2s;
+}
+.proj-links a:hover{color:var(--indigo-glow)}
+.proj-links a.live{color:var(--mint)}
+.proj-links a.live:hover{color:#6EE7B7}
+
+/* ── SKILLS ── */
+#skills{background:var(--navy-2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.skills-layout{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:3rem;
+}
+.skill-group{margin-bottom:2rem}
+.skill-group-label{
+  font-family:'Space Mono',monospace;
+  font-size:11px;letter-spacing:0.1em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin-bottom:0.75rem;
+  padding-bottom:0.5rem;
+  border-bottom:1px solid var(--border);
+}
+.skill-chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{
+  font-family:'Inter',sans-serif;
+  font-size:12px;color:var(--white-2);
+  background:var(--navy-3);
+  border:1px solid var(--border-2);
+  padding:4px 10px;border-radius:3px;
+  transition:border-color 0.2s,color 0.2s;
+}
+.chip:hover{border-color:var(--indigo-dim);color:var(--white)}
+.chip.highlight{border-color:var(--indigo-dim);color:var(--indigo-glow);background:#12133A}
+
+/* ── EXPERIENCE ── */
+#experience{background:var(--navy)}
+.timeline{position:relative;padding-left:2rem}
+.timeline::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;
+  width:1px;background:var(--border-2);
+}
+.tl-item{
+  position:relative;margin-bottom:2.5rem;
+}
+.tl-item::before{
+  content:'';position:absolute;
+  left:-2.4rem;top:6px;
+  width:8px;height:8px;border-radius:50%;
+  background:var(--indigo);
+  border:2px solid var(--navy);
+  box-shadow:0 0 0 2px var(--indigo-dim);
+}
+.tl-meta{
+  font-family:'Space Mono',monospace;
+  font-size:11px;color:var(--muted);
+  letter-spacing:0.06em;margin-bottom:0.4rem;
+}
+.tl-title{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:1.05rem;font-weight:500;
+  color:var(--white);margin-bottom:0.2rem;
+}
+.tl-org{font-size:13px;color:var(--indigo-glow);margin-bottom:0.5rem}
+.tl-desc{font-size:13px;color:var(--white-2);line-height:1.65;max-width:580px}
+.tl-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:0.75rem}
+.edu-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:1.5rem;margin-top:3rem;
+}
+.edu-card{
+  background:var(--navy-2);
+  border:1px solid var(--border);
+  border-radius:8px;padding:1.5rem;
+}
+.edu-icon{font-size:1.4rem;margin-bottom:0.75rem}
+.edu-deg{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:0.95rem;font-weight:500;
+  color:var(--white);margin-bottom:0.25rem;
+}
+.edu-inst{font-size:13px;color:var(--indigo-glow);margin-bottom:0.5rem}
+.edu-meta{font-size:12px;color:var(--muted)}
+
+/* ── CONTACT ── */
+#contact{
+  background:var(--navy-2);
+  border-top:1px solid var(--border);
+  text-align:center;
+}
+.contact-inner{max-width:520px;margin:0 auto}
+.contact-title{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:clamp(1.6rem,3.5vw,2.2rem);
+  font-weight:600;letter-spacing:-0.02em;
+  color:var(--white);margin-bottom:1rem;
+}
+.contact-desc{font-size:15px;color:var(--white-2);line-height:1.7;margin-bottom:2.5rem}
+.contact-links{
+  display:flex;justify-content:center;
+  flex-wrap:wrap;gap:1rem;margin-bottom:3rem;
+}
+.contact-link{
+  font-family:'Space Mono',monospace;
+  font-size:12px;letter-spacing:0.06em;
+  color:var(--muted);border:1px solid var(--border-2);
+  padding:8px 16px;border-radius:4px;
+  text-decoration:none;
+  display:flex;align-items:center;gap:6px;
+  transition:color 0.2s,border-color 0.2s;
+}
+.contact-link:hover{color:var(--white);border-color:var(--muted)}
+.contact-link.primary{color:var(--indigo-glow);border-color:var(--indigo-dim)}
+.contact-link.primary:hover{background:var(--indigo);color:#fff;border-color:var(--indigo)}
+.ctc-note{
+  font-family:'Space Mono',monospace;
+  font-size:11px;color:var(--muted);letter-spacing:0.06em;
+}
+
+/* ── FOOTER ── */
+footer{
+  padding:24px 5vw;
+  border-top:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:1rem;
+}
+footer p{font-family:'Space Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:0.04em}
+footer a{color:var(--muted);text-decoration:none}
+footer a:hover{color:var(--indigo-glow)}
+
+/* ── DIVIDER ── */
+.grid-divider{height:1px;background:var(--border);margin:0}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .trilogy-card.featured{grid-column:1;grid-template-columns:1fr}
+  .trilogy-grid{grid-template-columns:1fr}
+  .skills-layout{grid-template-columns:1fr}
+  .edu-grid{grid-template-columns:1fr}
+  .hero-stats{position:relative;bottom:auto;right:auto;margin-top:3rem;flex-wrap:wrap;justify-content:flex-start}
+  #hero{flex-direction:column;align-items:flex-start;padding-bottom:80px}
+  .nexus-visual{display:none}
+}
+@media(max-width:640px){
+  nav .nav-links{display:none}
 }
 </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav>
-  <div class="nav-inner">
-    <a class="nav-brand" href="#">
-      <div class="nav-logo">✈</div>
-      Mahin Nandipa
-    </a>
-    <div class="nav-links">
-      <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="#experience">Experience</a>
-      <a href="#contact">Contact</a>
-      <a href="https://github.com/mahin-aeroai/AeroLens" target="_blank" class="cta">🔭 AeroLens</a>
-    </div>
-  </div>
+  <a href="#" class="nav-logo">MN<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#ssa">SSA Trilogy</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">CONTACT →</a>
 </nav>
 
-<section class="hero" id="about">
-  <div class="orb orb1"></div>
-  <div class="orb orb2"></div>
-  <div class="hero-inner">
-    <div>
-      <div class="hero-badge">✈ Aerospace × AI/ML Engineer · Hyderabad</div>
-      <h1>Building <span class="accent">Intelligent</span><br>Aerospace Systems</h1>
-      <p class="hero-sub">Fresher ML Engineer with B.Tech Aerospace Engineering (VIT Bhopal) + PG Certificate AI & ML (IIIT Hyderabad). Bridging aerospace domain knowledge with LLMs, RAG pipelines, and full-stack AI engineering.</p>
-      <div class="hero-tags">
-        <span class="hero-tag">LLMs & RAG</span>
-        <span class="hero-tag">LoRA Fine-Tuning</span>
-        <span class="hero-tag">LangChain</span>
-        <span class="hero-tag">FastAPI</span>
-        <span class="hero-tag">HuggingFace</span>
-        <span class="hero-tag">Aerospace Domain</span>
-        <span class="hero-tag">Python</span>
-        <span class="hero-tag">.NET 8</span>
-      </div>
-      <div class="hero-btns">
-        <a href="#projects" class="btn-p"><i class="bi bi-grid-3x3-gap"></i> View Projects</a>
-        <a href="https://github.com/mahin-aeroai" target="_blank" class="btn-g"><i class="bi bi-github"></i> GitHub</a>
-        <a href="#contact" class="btn-g"><i class="bi bi-envelope"></i> Contact</a>
-      </div>
+<!-- HERO -->
+<section id="hero">
+  <canvas id="star-canvas"></canvas>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Aerospace × AI/ML Engineer · Hyderabad</p>
+    <h1 class="hero-title">
+      Building Intelligent<br>
+      <span class="line-2">Aerospace Systems</span>
+    </h1>
+    <p class="hero-desc">
+      Fresher ML Engineer with B.Tech Aerospace Engineering (VIT Bhopal) + PG Certificate AI &amp; ML (IIIT Hyderabad). Bridging domain-deep aerospace knowledge with LLMs, RAG pipelines, PINN physics modelling, and orbital mechanics — end to end.
+    </p>
+    <div class="hero-tags">
+      <span class="tag">LLMs &amp; RAG</span>
+      <span class="tag">LoRA Fine-Tuning</span>
+      <span class="tag">LangChain</span>
+      <span class="tag">FastAPI</span>
+      <span class="tag">PyTorch</span>
+      <span class="tag">Orbital Mechanics</span>
+      <span class="tag">SGP4 Propagation</span>
+      <span class="tag">Anti-Drone AI</span>
+      <span class="tag">HuggingFace</span>
     </div>
-    <div class="hero-right">
-      <div class="avatar-ring">
-        <div class="avatar-inner">MN</div>
-      </div>
-      <div class="hero-stats">
-        <div class="hs"><div class="n">8.23</div><div class="l">CGPA B.Tech</div></div>
-        <div class="hs"><div class="n">107</div><div class="l">Skills</div></div>
-        <div class="hs"><div class="n">87</div><div class="l">Companies Tracked</div></div>
-        <div class="hs"><div class="n">+34pp</div><div class="l">CodeBLEU Gain</div></div>
-      </div>
+    <div class="hero-actions">
+      <a href="#ssa" class="btn-primary">View SSA Trilogy</a>
+      <a href="https://github.com/mahin-aeroai" target="_blank" class="btn-ghost">GitHub ↗</a>
+      <a href="https://linkedin.com/in/mahin-nandipa" target="_blank" class="btn-ghost">LinkedIn ↗</a>
     </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num"><span>+34</span>pp</div>
+      <div class="stat-label">CodeBLEU Gain</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">600<span>+</span></div>
+      <div class="stat-label">Platforms Tracked</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">8<span>.</span>23</div>
+      <div class="stat-label">B.Tech CGPA</div>
+    </div>
+  </div>
+</section>
+
+<!-- SSA TRILOGY -->
+<section id="ssa">
+  <p class="section-label">Flagship</p>
+  <h2 class="section-title">The SSA Trilogy</h2>
+  <p style="font-size:14px;color:var(--white-2);max-width:580px;margin-bottom:2.5rem;line-height:1.7;">Three open-source aerospace AI platforms — built end to end, publicly deployed — covering space situational awareness, orbital intelligence, and live threat monitoring.</p>
+
+  <div class="trilogy-grid">
+
+    <!-- NEXUS featured -->
+    <div class="trilogy-card featured">
+      <div>
+        <span class="tc-badge nexus">Apex Platform</span>
+        <h3 class="tc-title">ORBITIQ NEXUS</h3>
+        <p class="tc-sub">Orbital intelligence command centre with live density heatmaps, a Knowledge Graph canvas, nine SSA modules, and an AI Copilot — backed by a Cloudflare Worker proxy for real-time space weather and conjunction data.</p>
+        <div class="tc-modules">
+          <span class="tc-mod">Orbital Heatmap</span>
+          <span class="tc-mod">Conjunction Analysis</span>
+          <span class="tc-mod">Knowledge Graph</span>
+          <span class="tc-mod">Space Weather</span>
+          <span class="tc-mod">AI Copilot</span>
+          <span class="tc-mod">Debris Forecast</span>
+          <span class="tc-mod">NOAA APIs</span>
+          <span class="tc-mod">Cloudflare Worker</span>
+        </div>
+        <a href="https://github.com/mahin-aeroai/orbitiq-nexus" target="_blank" class="tc-link">mahin-aeroai.github.io/orbitiq-nexus</a>
+      </div>
+      <div class="nexus-visual" id="nexus-vis" aria-hidden="true"></div>
+    </div>
+
+    <!-- Explorer v2 -->
+    <div class="trilogy-card">
+      <span class="tc-badge explorer">Propagation Engine</span>
+      <h3 class="tc-title">ORBITIQ Explorer v2</h3>
+      <p class="tc-sub">Single-file 140KB HTML. SGP4 propagation, ISS/Starlink/NavIC real-time tracking, 3D globe, pass predictor (Hyderabad default), asteroid intelligence via NASA NeoWS, space weather overlays.</p>
+      <div class="tc-modules">
+        <span class="tc-mod">SGP4</span>
+        <span class="tc-mod">ISS Tracking</span>
+        <span class="tc-mod">NavIC</span>
+        <span class="tc-mod">NASA NeoWS</span>
+        <span class="tc-mod">3D Globe</span>
+        <span class="tc-mod">Pass Predictor</span>
+      </div>
+      <a href="https://github.com/mahin-aeroai/orbitiq-explorer" target="_blank" class="tc-link">Live Deploy ↗</a>
+    </div>
+
+    <!-- ASTRA WATCH -->
+    <div class="trilogy-card">
+      <span class="tc-badge astra">Ops Monitoring</span>
+      <h3 class="tc-title">ASTRA WATCH</h3>
+      <p class="tc-sub">Eight-module live ops platform. Real-time ISS tracking, Chart.js visualisations, electric amber on ops-navy branding — monitoring threats and trajectories in continuous ops mode.</p>
+      <div class="tc-modules">
+        <span class="tc-mod">Live ISS</span>
+        <span class="tc-mod">Chart.js</span>
+        <span class="tc-mod">8 Modules</span>
+        <span class="tc-mod">Threat Monitor</span>
+        <span class="tc-mod">Trajectory</span>
+      </div>
+      <a href="https://github.com/mahin-aeroai/astra-watch" target="_blank" class="tc-link">Live Deploy ↗</a>
+    </div>
+
   </div>
 </section>
 
 <!-- PROJECTS -->
 <section id="projects">
-  <div class="si">
-    <div class="sl">Portfolio</div>
-    <div class="st">Featured Projects</div>
-    <div class="ss">From LLM fine-tuning to aerospace intelligence platforms — built end to end.</div>
-    <div class="pg">
+  <p class="section-label">Projects</p>
+  <h2 class="section-title">All Builds</h2>
 
-      <div class="pc">
-        <div class="pct">
-          <div class="pa" style="background:linear-gradient(90deg,#2E5F9E,#F5A623)"></div>
-          <div class="pi">🔭</div>
-          <div class="pn">AeroLens</div>
-          <div class="pd">India's first open-source Aerospace Industry Intelligence platform. 87 companies, CEOs, live projects, job openings, technology stacks — all searchable.</div>
-          <div class="pm">
-            <div class="pmi"><div class="v">87</div><div class="lb">Companies</div></div>
-            <div class="pmi"><div class="v">80+</div><div class="lb">Jobs</div></div>
-            <div class="pmi"><div class="v">150+</div><div class="lb">Projects</div></div>
-          </div>
-        </div>
-        <div class="pcb">
-          <div class="ptags"><span class="ptag">.NET 8</span><span class="ptag">Oracle DB</span><span class="ptag">Bootstrap 5</span></div>
-          <div class="plinks">
-            <a href="https://github.com/mahin-aeroai/AeroLens" target="_blank" class="pl gh"><i class="bi bi-github"></i></a>
-            <a href="https://github.com/mahin-aeroai/AeroLens" target="_blank" class="pl">Live →</a>
-          </div>
-        </div>
+  <div class="projects-grid">
+
+    <!-- Anti-Drone PINN -->
+    <div class="proj-card">
+      <div class="proj-header">
+        <div class="proj-icon">〜</div>
+        <span class="proj-ext">physics_ai</span>
       </div>
-
-      <div class="pc">
-        <div class="pct">
-          <div class="pa" style="background:linear-gradient(90deg,#6A1B9A,#AB47BC)"></div>
-          <div class="pi">🤖</div>
-          <div class="pn">BI Copilot</div>
-          <div class="pd">Natural language to SQL agent. Ask questions in English, get live database answers. LangChain + FastAPI + FAISS vector store + Streamlit.</div>
-          <div class="pm">
-            <div class="pmi"><div class="v">84%</div><div class="lb">Spider acc.</div></div>
-            <div class="pmi"><div class="v">67%</div><div class="lb">BirdBench</div></div>
-            <div class="pmi"><div class="v">RAG</div><div class="lb">Architecture</div></div>
-          </div>
-        </div>
-        <div class="pcb">
-          <div class="ptags"><span class="ptag">LangChain</span><span class="ptag">FastAPI</span><span class="ptag">FAISS</span></div>
-          <div class="plinks">
-            <a href="https://github.com/mahin-aeroai" target="_blank" class="pl gh"><i class="bi bi-github"></i></a>
-            <a href="https://github.com/mahin-aeroai" target="_blank" class="pl">View →</a>
-          </div>
-        </div>
+      <h3 class="proj-name">Anti-Drone PINN</h3>
+      <p class="proj-desc">Physics-Informed Neural Network for aeroacoustic drone detection. 2D wave equation governing model, Fourier-feature PINN, FFT/STFT signal processing, Streamlit dashboard — deployed to Streamlit Community Cloud.</p>
+      <div class="proj-stack">
+        <span class="proj-tag">PyTorch</span>
+        <span class="proj-tag">PINN</span>
+        <span class="proj-tag">Streamlit</span>
+        <span class="proj-tag">FFT/STFT</span>
+        <span class="proj-tag">Wave Equation</span>
       </div>
-
-      <div class="pc">
-        <div class="pct">
-          <div class="pa" style="background:linear-gradient(90deg,#00796B,#26A69A)"></div>
-          <div class="pi">⚡</div>
-          <div class="pn">CodeGen RAG System</div>
-          <div class="pd">LoRA fine-tuned CodeGen-350M on A100 GPU. Tasks: program synthesis, documentation generation, commit messages, PL translation.</div>
-          <div class="pm">
-            <div class="pmi"><div class="v">+34pp</div><div class="lb">CodeBLEU</div></div>
-            <div class="pmi"><div class="v">r=16</div><div class="lb">LoRA rank</div></div>
-            <div class="pmi"><div class="v">A100</div><div class="lb">GPU</div></div>
-          </div>
-        </div>
-        <div class="pcb">
-          <div class="ptags"><span class="ptag">PyTorch</span><span class="ptag">LoRA</span><span class="ptag">HuggingFace</span></div>
-          <div class="plinks">
-            <a href="https://github.com/mahin-aeroai/CodeGen" target="_blank" class="pl gh"><i class="bi bi-github"></i></a>
-            <a href="https://github.com/mahin-aeroai/CodeGen" target="_blank" class="pl">View →</a>
-          </div>
-        </div>
+      <span class="proj-metric">↳ Live on Streamlit Cloud</span>
+      <div class="proj-links">
+        <a href="https://github.com/mahin-aeroai/anti-drone-pinn" target="_blank">GitHub</a>
+        <a href="https://share.streamlit.io/" target="_blank" class="live">Live Demo ↗</a>
       </div>
-
-      <div class="pc">
-        <div class="pct">
-          <div class="pa" style="background:linear-gradient(90deg,#E87722,#F5A623)"></div>
-          <div class="pi">📊</div>
-          <div class="pn">SignERP</div>
-          <div class="pd">Web-based ERP for signage and brand amplification business. Cost estimation, project tracking, client management. Deployed live.</div>
-          <div class="pm">
-            <div class="pmi"><div class="v">Live</div><div class="lb">Deployed</div></div>
-            <div class="pmi"><div class="v">v2</div><div class="lb">Version</div></div>
-            <div class="pmi"><div class="v">ERP</div><div class="lb">Full Stack</div></div>
-          </div>
-        </div>
-        <div class="pcb">
-          <div class="ptags"><span class="ptag">Python</span><span class="ptag">Streamlit</span><span class="ptag">GitHub Pages</span></div>
-          <div class="plinks">
-            <a href="https://github.com/mahin-aeroai/Costing-ERP" target="_blank" class="pl gh"><i class="bi bi-github"></i></a>
-            <a href="https://mahin-aeroai.github.io/Costing-ERP" target="_blank" class="pl">Live →</a>
-          </div>
-        </div>
-      </div>
-
     </div>
+
+    <!-- AeroIntel DB -->
+    <div class="proj-card">
+      <div class="proj-header">
+        <div class="proj-icon">◈</div>
+        <span class="proj-ext">intelligence_db</span>
+      </div>
+      <h3 class="proj-name">AeroIntel DB</h3>
+      <p class="proj-desc">600+ platform aerospace intelligence database — single-file HTML (~1MB). Full detail panels, Wikipedia REST API integration, offline AI fallback covering Skyroot, Tejas, BrahMos, AMCA, PSLV, DRDO UAVs, S-400.</p>
+      <div class="proj-stack">
+        <span class="proj-tag">Vanilla JS</span>
+        <span class="proj-tag">Wikipedia API</span>
+        <span class="proj-tag">GitHub Pages</span>
+        <span class="proj-tag">600+ Platforms</span>
+      </div>
+      <span class="proj-metric">↳ 600+ platforms indexed</span>
+      <div class="proj-links">
+        <a href="https://github.com/mahin-aeroai/aerointel" target="_blank">GitHub</a>
+        <a href="https://mahin-aeroai.github.io/aerointel/" target="_blank" class="live">Live ↗</a>
+      </div>
+    </div>
+
+    <!-- CodeGen RAG -->
+    <div class="proj-card">
+      <div class="proj-header">
+        <div class="proj-icon">⚡</div>
+        <span class="proj-ext">llm_finetune</span>
+      </div>
+      <h3 class="proj-name">CodeGen RAG System</h3>
+      <p class="proj-desc">LoRA fine-tuned Salesforce/CodeGen-350M on A100 GPU. Four tasks: program synthesis, documentation generation, commit messages, Python↔Java/C++ translation. +34pp CodeBLEU across tasks.</p>
+      <div class="proj-stack">
+        <span class="proj-tag">LoRA r=16</span>
+        <span class="proj-tag">PyTorch</span>
+        <span class="proj-tag">HuggingFace</span>
+        <span class="proj-tag">A100 GPU</span>
+        <span class="proj-tag">PEFT</span>
+        <span class="proj-tag">CoDocBench</span>
+      </div>
+      <span class="proj-metric">↳ +34pp CodeBLEU (confirmed)</span>
+      <div class="proj-links">
+        <a href="https://github.com/mahin-aeroai/CodeGen" target="_blank">GitHub</a>
+      </div>
+    </div>
+
+    <!-- Space Data Intelligence Hub -->
+    <div class="proj-card">
+      <div class="proj-header">
+        <div class="proj-icon">◉</div>
+        <span class="proj-ext">education_spa</span>
+      </div>
+      <h3 class="proj-name">Space Data Intelligence Hub</h3>
+      <p class="proj-desc">Two-phase educational SPA covering 24 space data modules. All assets inlined as SVG (no external hotlinks). Deployed to GitHub Pages — covers orbital mechanics, SSA, GNSS, remote sensing and more.</p>
+      <div class="proj-stack">
+        <span class="proj-tag">Vanilla JS</span>
+        <span class="proj-tag">SVG</span>
+        <span class="proj-tag">GitHub Pages</span>
+        <span class="proj-tag">24 Modules</span>
+      </div>
+      <div class="proj-links">
+        <a href="https://github.com/mahin-aeroai/space-data-intelligence-hub" target="_blank">GitHub</a>
+        <a href="https://mahin-aeroai.github.io/space-data-intelligence-hub" target="_blank" class="live">Live ↗</a>
+      </div>
+    </div>
+
+    <!-- AeroLens -->
+    <div class="proj-card">
+      <div class="proj-header">
+        <div class="proj-icon">⊕</div>
+        <span class="proj-ext">full_stack</span>
+      </div>
+      <h3 class="proj-name">AeroLens</h3>
+      <p class="proj-desc">India's open-source aerospace industry intelligence platform. Oracle DDL schema, .NET 8 Web API (60+ endpoints), Bootstrap 5 frontend, 10 modules — 87 Indian aerospace companies with CEOs, live projects, job openings.</p>
+      <div class="proj-stack">
+        <span class="proj-tag">.NET 8</span>
+        <span class="proj-tag">Oracle DB</span>
+        <span class="proj-tag">Bootstrap 5</span>
+        <span class="proj-tag">Railway.app</span>
+        <span class="proj-tag">REST API</span>
+      </div>
+      <span class="proj-metric">↳ 87 companies · 80+ jobs · 150+ projects</span>
+      <div class="proj-links">
+        <a href="https://github.com/mahin-aeroai/AeroLens" target="_blank">GitHub</a>
+      </div>
+    </div>
+
+    <!-- BI Copilot -->
+    <div class="proj-card">
+      <div class="proj-header">
+        <div class="proj-icon">◎</div>
+        <span class="proj-ext">nl2sql_agent</span>
+      </div>
+      <h3 class="proj-name">BI Copilot</h3>
+      <p class="proj-desc">Natural language to SQL agent. Ask questions in plain English, get live database answers. LangChain orchestration, FAISS vector store for schema retrieval, FastAPI backend, Streamlit UI.</p>
+      <div class="proj-stack">
+        <span class="proj-tag">LangChain</span>
+        <span class="proj-tag">FastAPI</span>
+        <span class="proj-tag">FAISS</span>
+        <span class="proj-tag">Streamlit</span>
+        <span class="proj-tag">NL2SQL</span>
+      </div>
+      <div class="proj-links">
+        <a href="https://github.com/mahin-aeroai" target="_blank">GitHub</a>
+      </div>
+    </div>
+
+    <!-- SignERP -->
+    <div class="proj-card">
+      <div class="proj-header">
+        <div class="proj-icon">▦</div>
+        <span class="proj-ext">erp_system</span>
+      </div>
+      <h3 class="proj-name">SignERP v2</h3>
+      <p class="proj-desc">Single-file HTML ERP for soft signage and LED fabrication businesses. Cost estimation, project tracking, client management. Deployed live on GitHub Pages.</p>
+      <div class="proj-stack">
+        <span class="proj-tag">HTML5</span>
+        <span class="proj-tag">Vanilla JS</span>
+        <span class="proj-tag">GitHub Pages</span>
+        <span class="proj-tag">ERP</span>
+      </div>
+      <div class="proj-links">
+        <a href="https://github.com/mahin-aeroai/Costing-ERP" target="_blank">GitHub</a>
+        <a href="https://mahin-aeroai.github.io/Costing-ERP/SignERP_v2.html" target="_blank" class="live">Live ↗</a>
+      </div>
+    </div>
+
   </div>
 </section>
 
 <!-- SKILLS -->
-<section id="skills" class="alt">
-  <div class="si">
-    <div class="sl">Capabilities</div>
-    <div class="st">Skills & Technologies</div>
-    <div class="ss">107 skills across 8 categories — from LLM fine-tuning to aerospace domain knowledge.</div>
-    <div class="sg">
-      <div class="sc"><div class="si2">🧠</div><div class="sct">LLMs & Generative AI</div><div class="stags"><span class="stag">LLMs</span><span class="stag">RAG Pipelines</span><span class="stag">LoRA Fine-Tuning</span><span class="stag">LangChain</span><span class="stag">HuggingFace</span><span class="stag">Prompt Engineering</span><span class="stag">FAISS</span><span class="stag">Vector DBs</span></div></div>
-      <div class="sc"><div class="si2">📊</div><div class="sct">ML & Deep Learning</div><div class="stags"><span class="stag">PyTorch</span><span class="stag">TensorFlow</span><span class="stag">scikit-learn</span><span class="stag">NLP</span><span class="stag">Computer Vision</span><span class="stag">XGBoost</span><span class="stag">PEFT</span><span class="stag">Transformers</span></div></div>
-      <div class="sc"><div class="si2">⚡</div><div class="sct">Backend & APIs</div><div class="stags"><span class="stag">Python</span><span class="stag">FastAPI</span><span class="stag">.NET 8</span><span class="stag">REST APIs</span><span class="stag">JWT Auth</span><span class="stag">Oracle DB</span><span class="stag">SQL</span><span class="stag">Dapper</span></div></div>
-      <div class="sc"><div class="si2">✈</div><div class="sct">Aerospace Domain</div><div class="stags"><span class="stag">Avionics</span><span class="stag">DO-178C</span><span class="stag">Composites</span><span class="stag">NDT</span><span class="stag">UAV Systems</span><span class="stag">GNC</span><span class="stag">VARTM</span><span class="stag">STM32</span></div></div>
-      <div class="sc"><div class="si2">🌐</div><div class="sct">Frontend & UI</div><div class="stags"><span class="stag">HTML5</span><span class="stag">CSS3</span><span class="stag">Bootstrap 5</span><span class="stag">JavaScript</span><span class="stag">Chart.js</span><span class="stag">Streamlit</span><span class="stag">Responsive Design</span></div></div>
-      <div class="sc"><div class="si2">🔧</div><div class="sct">Tools & DevOps</div><div class="stags"><span class="stag">Git & GitHub</span><span class="stag">GitHub Actions</span><span class="stag">Railway</span><span class="stag">VS Code</span><span class="stag">Jupyter</span><span class="stag">Google Colab</span><span class="stag">Postman</span></div></div>
+<section id="skills">
+  <p class="section-label">Capabilities</p>
+  <h2 class="section-title">Skills &amp; Stack</h2>
+  <div class="skills-layout">
+    <div>
+      <div class="skill-group">
+        <div class="skill-group-label">LLMs &amp; Generative AI</div>
+        <div class="skill-chips">
+          <span class="chip highlight">LLMs</span>
+          <span class="chip highlight">RAG Pipelines</span>
+          <span class="chip highlight">LoRA Fine-Tuning</span>
+          <span class="chip highlight">LangChain</span>
+          <span class="chip highlight">HuggingFace</span>
+          <span class="chip">Prompt Engineering</span>
+          <span class="chip">FAISS / Vector DBs</span>
+          <span class="chip">PEFT</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-label">ML &amp; Deep Learning</div>
+        <div class="skill-chips">
+          <span class="chip highlight">PyTorch</span>
+          <span class="chip">TensorFlow</span>
+          <span class="chip">scikit-learn</span>
+          <span class="chip">NLP</span>
+          <span class="chip">Physics-Informed NN</span>
+          <span class="chip">XGBoost</span>
+          <span class="chip">Transformers</span>
+          <span class="chip">Computer Vision</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-label">Aerospace Domain</div>
+        <div class="skill-chips">
+          <span class="chip highlight">SGP4 Propagation</span>
+          <span class="chip highlight">SSA</span>
+          <span class="chip highlight">Anti-Drone Systems</span>
+          <span class="chip">Avionics</span>
+          <span class="chip">UAV Systems</span>
+          <span class="chip">Composites / VARTM</span>
+          <span class="chip">NDT</span>
+          <span class="chip">STM32 / Embedded</span>
+          <span class="chip">DO-178C</span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="skill-group">
+        <div class="skill-group-label">Backend &amp; APIs</div>
+        <div class="skill-chips">
+          <span class="chip highlight">Python</span>
+          <span class="chip highlight">FastAPI</span>
+          <span class="chip">.NET 8</span>
+          <span class="chip">REST APIs</span>
+          <span class="chip">Oracle DB</span>
+          <span class="chip">SQL</span>
+          <span class="chip">JWT Auth</span>
+          <span class="chip">Streamlit</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-label">Frontend &amp; Visualisation</div>
+        <div class="skill-chips">
+          <span class="chip">HTML5 / CSS3</span>
+          <span class="chip">JavaScript</span>
+          <span class="chip">Chart.js</span>
+          <span class="chip">Bootstrap 5</span>
+          <span class="chip">SVG / Canvas</span>
+          <span class="chip">Responsive Design</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-label">Tools &amp; DevOps</div>
+        <div class="skill-chips">
+          <span class="chip">Git / GitHub</span>
+          <span class="chip">GitHub Actions</span>
+          <span class="chip">GitHub Pages</span>
+          <span class="chip">Cloudflare Workers</span>
+          <span class="chip">Railway.app</span>
+          <span class="chip">Netlify</span>
+          <span class="chip">Google Colab / A100</span>
+          <span class="chip">VS Code</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- EXPERIENCE & EDUCATION -->
+<!-- EXPERIENCE -->
 <section id="experience">
-  <div class="si">
-    <div class="sl">Career</div>
-    <div class="st">Experience & Education</div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;flex-wrap:wrap;">
-      <div>
-        <h3 style="font-size:14px;font-weight:700;color:var(--amber2);margin-bottom:24px;text-transform:uppercase;letter-spacing:1px;">Work Experience</h3>
-        <div class="etl">
-          <div class="ei">
-            <div class="ed">2023 — 2024</div>
-            <div class="er">Python Developer</div>
-            <div class="ec">Punctilious · Contract · 1 year</div>
-            <div class="edesc">Python development — automation scripts, data pipelines, backend services.</div>
-            <span class="etag">Python</span><span class="etag">Automation</span><span class="etag">Data Pipelines</span>
-          </div>
-          <div class="ei">
-            <div class="ed">2023</div>
-            <div class="er">Capstone Lead — CodeGen</div>
-            <div class="ec">IIIT Hyderabad · Group 39</div>
-            <div class="edesc">Led Group 39 capstone. LoRA fine-tuned CodeGen-350M on A100. +34pp CodeBLEU improvement across 4 code generation tasks. Supervised by Prof. Anil Neelkanti.</div>
-            <span class="etag">LoRA</span><span class="etag">PyTorch</span><span class="etag">A100</span><span class="etag">Team Lead</span>
-          </div>
-          <div class="ei">
-            <div class="ed">2022</div>
-            <div class="er">Intern — Anti-Drone System</div>
-            <div class="ec">Dautya Aerospace</div>
-            <div class="edesc">Acoustic detection system for anti-drone applications. Composite manufacturing (VARTM), NDT, STM32 embedded integration.</div>
-            <span class="etag">STM32</span><span class="etag">VARTM</span><span class="etag">NDT</span><span class="etag">Composites</span>
-          </div>
-        </div>
+  <p class="section-label">Background</p>
+  <h2 class="section-title">Experience &amp; Education</h2>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-meta">2023 — 2024</div>
+      <div class="tl-title">Python Developer</div>
+      <div class="tl-org">Punctilious · Contract</div>
+      <p class="tl-desc">Python development — automation scripts, data pipelines, and backend services. Authorised by Srinivas Jampani.</p>
+      <div class="tl-tags">
+        <span class="chip" style="font-size:11px">Python</span>
+        <span class="chip" style="font-size:11px">Automation</span>
+        <span class="chip" style="font-size:11px">Data Pipelines</span>
       </div>
-      <div>
-        <h3 style="font-size:14px;font-weight:700;color:var(--amber2);margin-bottom:24px;text-transform:uppercase;letter-spacing:1px;">Education</h3>
-        <div class="edc">
-          <div class="edi">🎓</div>
-          <div class="edd">Post Graduate Certificate — AI & ML</div>
-          <div class="eds">IIIT Hyderabad × TalentSprint × Accenture</div>
-          <div class="edy">Batch 26 · 2023–2024</div>
-          <div class="edg">LLMs · GenAI · Deep Learning · NLP</div>
-        </div>
-        <div class="edc">
-          <div class="edi">🚀</div>
-          <div class="edd">B.Tech — Aerospace Engineering</div>
-          <div class="eds">VIT Bhopal University</div>
-          <div class="edy">2019–2023</div>
-          <div class="edg">CGPA: 8.23 / 10</div>
-        </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-meta">2023 · IIIT Hyderabad · Group 39</div>
+      <div class="tl-title">Capstone Lead — CodeGen RAG</div>
+      <div class="tl-org">PGCP AI &amp; ML, Batch 26</div>
+      <p class="tl-desc">Led Group 39 capstone project. LoRA fine-tuned CodeGen-350M (r=16, α=32) on A100 GPU. +34pp CodeBLEU improvement (72% absolute) across four code generation tasks. Supervised by Prof. Anil Neelkanti; mentored by Pawan Baswani and Nayan Anand.</p>
+      <div class="tl-tags">
+        <span class="chip" style="font-size:11px">LoRA</span>
+        <span class="chip" style="font-size:11px">PyTorch</span>
+        <span class="chip" style="font-size:11px">A100</span>
+        <span class="chip" style="font-size:11px">Team Lead</span>
       </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-meta">2022</div>
+      <div class="tl-title">Intern — Anti-Drone Detection</div>
+      <div class="tl-org">Dautya Aerospace</div>
+      <p class="tl-desc">Acoustic detection system for counter-drone applications. Composite manufacturing (VARTM), NDT inspection, STM32 embedded integration. Contributed to signal processing pipeline for drone acoustic signature classification.</p>
+      <div class="tl-tags">
+        <span class="chip" style="font-size:11px">STM32</span>
+        <span class="chip" style="font-size:11px">VARTM</span>
+        <span class="chip" style="font-size:11px">NDT</span>
+        <span class="chip" style="font-size:11px">Acoustics</span>
+        <span class="chip" style="font-size:11px">Composites</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="edu-grid">
+    <div class="edu-card">
+      <div class="edu-icon">🎓</div>
+      <div class="edu-deg">Post Graduate Certificate — AI &amp; ML</div>
+      <div class="edu-inst">IIIT Hyderabad × TalentSprint × Accenture</div>
+      <div class="edu-meta">Batch 26 · 2023–2024 · LLMs · GenAI · Deep Learning · NLP</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-icon">🚀</div>
+      <div class="edu-deg">B.Tech — Aerospace Engineering</div>
+      <div class="edu-inst">VIT Bhopal University</div>
+      <div class="edu-meta">2019–2023 · CGPA 8.23 / 10 · Head of Outreach, SEDS NEBULA</div>
     </div>
   </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="alt">
-  <div class="si">
-    <div class="sl">Let's Connect</div>
-    <div class="st">Get In Touch</div>
-    <div class="ss">Open to ML Engineer, GenAI, and Aerospace AI roles. Based in Hyderabad — open to remote.</div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;">
-      <div class="cc">
-        <div class="cit"><div class="cii"><i class="bi bi-geo-alt"></i></div><div><div class="cil">Location</div><div class="civ">Hyderabad, Telangana, India</div></div></div>
-        <div class="cit"><div class="cii"><i class="bi bi-github"></i></div><div><div class="cil">GitHub</div><div class="civ"><a href="https://github.com/mahin-aeroai" target="_blank">github.com/mahin-aeroai</a></div></div></div>
-        <div class="cit"><div class="cii"><i class="bi bi-linkedin"></i></div><div><div class="cil">LinkedIn</div><div class="civ"><a href="https://linkedin.com/in/mahin-nandipa" target="_blank">linkedin.com/in/mahin-nandipa</a></div></div></div>
-        <div class="cit"><div class="cii"><i class="bi bi-globe"></i></div><div><div class="cil">AeroLens</div><div class="civ"><a href="https://github.com/mahin-aeroai/AeroLens" target="_blank">AeroLens Platform</a></div></div></div>
-        <div class="cit"><div class="cii"><i class="bi bi-briefcase"></i></div><div><div class="cil">Open To</div><div class="civ">ML Engineer · GenAI · Aerospace AI</div></div></div>
-        <div class="cit"><div class="cii"><i class="bi bi-currency-rupee"></i></div><div><div class="cil">Expected CTC</div><div class="civ">₹7–10 LPA (Fresher)</div></div></div>
-      </div>
-      <div class="cf">
-        <input type="text" placeholder="Your Name">
-        <input type="email" placeholder="Your Email">
-        <input type="text" placeholder="Subject — e.g. ML Engineer Role">
-        <textarea placeholder="Your message..."></textarea>
-        <button onclick="alert('Please reach out via LinkedIn for now!')"><i class="bi bi-send"></i> Send Message</button>
-      </div>
+<section id="contact">
+  <div class="contact-inner">
+    <h2 class="contact-title">Open to Opportunities</h2>
+    <p class="contact-desc">ML Engineer / GenAI / Aerospace AI roles. Based in Hyderabad — open to remote. Target domains: defense-adjacent autonomy, SSA, and aerospace intelligence systems.</p>
+    <div class="contact-links">
+      <a href="mailto:mahin.nandipa@gmail.com" class="contact-link primary">✉ Email</a>
+      <a href="https://linkedin.com/in/mahin-nandipa" target="_blank" class="contact-link">LinkedIn ↗</a>
+      <a href="https://github.com/mahin-aeroai" target="_blank" class="contact-link">GitHub ↗</a>
+      <a href="https://mahin-aeroai.github.io/aerointel/" target="_blank" class="contact-link">AeroLens ↗</a>
     </div>
+    <p class="ctc-note">Expected CTC · ₹7–10 LPA (Fresher)</p>
   </div>
 </section>
 
 <footer>
-  <p>© 2025 Mahin Nandipa · Hyderabad ·
-    <a href="https://github.com/mahin-aeroai" target="_blank">GitHub</a> ·
-    <a href="https://github.com/mahin-aeroai/AeroLens" target="_blank">AeroLens</a>
-  </p>
+  <p>© 2026 Mahin Nandipa · Hyderabad</p>
+  <p><a href="https://github.com/mahin-aeroai">github.com/mahin-aeroai</a> · <a href="https://mahin-aeroai.github.io/aerointel/">AeroLens</a></p>
 </footer>
 
 <script>
-document.querySelectorAll('a[href^="#"]').forEach(a=>{
-  a.addEventListener('click',e=>{
-    const el=document.getElementById(a.getAttribute('href').slice(1));
-    if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth'});}
+/* ── STAR FIELD CANVAS ── */
+(function(){
+  const canvas=document.getElementById('star-canvas');
+  if(!canvas)return;
+  const ctx=canvas.getContext('2d');
+  let W,H,stars=[],nodes=[],animId;
+
+  const STAR_COUNT=120;
+  const NODE_LABELS=['NEXUS','EXPLORER','ASTRA','ISS','PINN','AEROINTEL','SDIH','AEROLENS'];
+  const NODE_COLORS=['#6366F1','#34D399','#F59E0B','#818CF8','#6366F1','#34D399','#818CF8','#F59E0B'];
+
+  function resize(){
+    W=canvas.width=canvas.offsetWidth;
+    H=canvas.height=canvas.offsetHeight;
+    init();
+  }
+
+  function rand(a,b){return a+Math.random()*(b-a)}
+
+  function init(){
+    stars=[];
+    for(let i=0;i<STAR_COUNT;i++){
+      stars.push({x:rand(0,W),y:rand(0,H),r:rand(0.3,1.1),a:rand(0.2,0.7),speed:rand(0.05,0.2)});
+    }
+    nodes=NODE_LABELS.map((label,i)=>{
+      const angle=(i/NODE_LABELS.length)*Math.PI*2;
+      const cx=W/2, cy=H/2;
+      const rx=W*0.28, ry=H*0.28;
+      return{
+        label,
+        color:NODE_COLORS[i],
+        bx:cx+Math.cos(angle)*rx,
+        by:cy+Math.sin(angle)*ry,
+        x:cx+Math.cos(angle)*rx,
+        y:cy+Math.sin(angle)*ry,
+        vx:rand(-0.12,0.12),
+        vy:rand(-0.12,0.12),
+        angle,phase:rand(0,Math.PI*2)
+      };
+    });
+  }
+
+  let t=0;
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    t+=0.005;
+
+    /* stars */
+    stars.forEach(s=>{
+      s.y+=s.speed;
+      if(s.y>H){s.y=0;s.x=rand(0,W);}
+      ctx.beginPath();
+      ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+      ctx.fillStyle=`rgba(180,190,220,${s.a})`;
+      ctx.fill();
+    });
+
+    /* orbital connection lines */
+    for(let i=0;i<nodes.length;i++){
+      for(let j=i+1;j<nodes.length;j++){
+        const dx=nodes[i].x-nodes[j].x;
+        const dy=nodes[i].y-nodes[j].y;
+        const dist=Math.sqrt(dx*dx+dy*dy);
+        if(dist<W*0.35){
+          ctx.beginPath();
+          ctx.moveTo(nodes[i].x,nodes[i].y);
+          ctx.lineTo(nodes[j].x,nodes[j].y);
+          const alpha=0.06*(1-dist/(W*0.35));
+          ctx.strokeStyle=`rgba(99,102,241,${alpha})`;
+          ctx.lineWidth=1;
+          ctx.stroke();
+        }
+      }
+    }
+
+    /* nodes */
+    nodes.forEach((n,i)=>{
+      const drift=0.6;
+      n.x=n.bx+Math.sin(t*0.7+n.phase)*drift*20;
+      n.y=n.by+Math.cos(t*0.5+n.phase)*drift*15;
+
+      /* glow */
+      const grad=ctx.createRadialGradient(n.x,n.y,0,n.x,n.y,14);
+      grad.addColorStop(0,n.color.replace(')',',0.25)').replace('rgb','rgba').replace('#',''));
+      grad.addColorStop(1,'rgba(0,0,0,0)');
+      /* skip gradient, just circle */
+      ctx.beginPath();
+      ctx.arc(n.x,n.y,3,0,Math.PI*2);
+      ctx.fillStyle=n.color;
+      ctx.globalAlpha=0.8;
+      ctx.fill();
+      ctx.globalAlpha=1;
+
+      /* label */
+      ctx.font='9px Space Mono,monospace';
+      ctx.fillStyle='rgba(130,140,180,0.55)';
+      ctx.fillText(n.label,n.x+6,n.y+3);
+    });
+
+    animId=requestAnimationFrame(draw);
+  }
+
+  resize();
+  window.addEventListener('resize',()=>{cancelAnimationFrame(animId);resize();draw();});
+  draw();
+})();
+
+/* ── NEXUS ORBITAL VISUAL ── */
+(function(){
+  const vis=document.getElementById('nexus-vis');
+  if(!vis)return;
+  const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');
+  svg.setAttribute('viewBox','0 0 280 210');
+  svg.setAttribute('width','100%');
+  svg.setAttribute('height','100%');
+  svg.style.display='block';
+
+  const rings=[
+    {r:85,color:'#6366F1',speed:18,dots:[{color:'#818CF8'},{color:'#34D399'}]},
+    {r:62,color:'#3D3F9E',speed:28,dots:[{color:'#F59E0B'}]},
+    {r:40,color:'#1E2840',speed:12,dots:[{color:'#6366F1'},{color:'#818CF8'}]},
+  ];
+
+  rings.forEach(ring=>{
+    const cx=140,cy=105;
+    const circle=document.createElementNS('http://www.w3.org/2000/svg','circle');
+    circle.setAttribute('cx',cx);circle.setAttribute('cy',cy);
+    circle.setAttribute('r',ring.r);circle.setAttribute('fill','none');
+    circle.setAttribute('stroke',ring.color);circle.setAttribute('stroke-width','0.8');
+    svg.appendChild(circle);
+
+    ring.dots.forEach((dot,di)=>{
+      const g=document.createElementNS('http://www.w3.org/2000/svg','g');
+      const initAngle=(di/ring.dots.length)*360;
+      const style=`animation: orbit-spin ${ring.speed}s linear infinite; transform-origin: ${cx}px ${cy}px; transform: rotate(${initAngle}deg);`;
+      g.setAttribute('style',style);
+      const c=document.createElementNS('http://www.w3.org/2000/svg','circle');
+      c.setAttribute('cx',cx);c.setAttribute('cy',cy-ring.r);
+      c.setAttribute('r','3.5');c.setAttribute('fill',dot.color);
+      g.appendChild(c);svg.appendChild(g);
+    });
   });
-});
-window.addEventListener('scroll',()=>{
-  document.querySelector('nav').style.background=
-    window.scrollY>50?'rgba(5,12,24,0.99)':'rgba(5,12,24,0.95)';
-});
+
+  /* centre dot */
+  const c=document.createElementNS('http://www.w3.org/2000/svg','circle');
+  c.setAttribute('cx','140');c.setAttribute('cy','105');
+  c.setAttribute('r','5');c.setAttribute('fill','#6366F1');
+  svg.appendChild(c);
+
+  vis.appendChild(svg);
+})();
 </script>
+
 </body>
 </html>

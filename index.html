@@ -558,7 +558,43 @@ footer a:hover{color:var(--indigo-glow)}
         </div>
         <a href="https://github.com/mahin-aeroai/orbitiq-nexus" target="_blank" class="tc-link">mahin-aeroai.github.io/orbitiq-nexus</a>
       </div>
-      <div class="nexus-visual" id="nexus-vis" aria-hidden="true"></div>
+      <div class="nexus-visual" aria-hidden="true">
+        <svg viewBox="0 0 280 210" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" style="display:block">
+          <defs>
+            <style>
+              .r1{animation:spin1 18s linear infinite;transform-origin:140px 105px}
+              .r2{animation:spin1 28s linear infinite reverse;transform-origin:140px 105px}
+              .r3{animation:spin1 12s linear infinite;transform-origin:140px 105px}
+              @keyframes spin1{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+            </style>
+          </defs>
+          <!-- static rings -->
+          <circle cx="140" cy="105" r="85" fill="none" stroke="#6366F1" stroke-width="0.8" opacity="0.5"/>
+          <circle cx="140" cy="105" r="62" fill="none" stroke="#3D3F9E" stroke-width="0.8" opacity="0.6"/>
+          <circle cx="140" cy="105" r="40" fill="none" stroke="#2A3554" stroke-width="0.8" opacity="0.7"/>
+          <!-- centre -->
+          <circle cx="140" cy="105" r="5" fill="#6366F1"/>
+          <circle cx="140" cy="105" r="9" fill="none" stroke="#6366F1" stroke-width="0.6" opacity="0.4"/>
+          <!-- ring 1 dots -->
+          <g class="r1">
+            <circle cx="140" cy="20" r="4" fill="#818CF8"/>
+            <circle cx="225" cy="105" r="3" fill="#34D399"/>
+          </g>
+          <!-- ring 2 dots -->
+          <g class="r2">
+            <circle cx="140" cy="43" r="3.5" fill="#F59E0B"/>
+          </g>
+          <!-- ring 3 dots -->
+          <g class="r3">
+            <circle cx="140" cy="65" r="3" fill="#6366F1"/>
+            <circle cx="100" cy="105" r="2.5" fill="#818CF8"/>
+          </g>
+          <!-- labels -->
+          <text x="148" y="18" font-family="Space Mono,monospace" font-size="8" fill="#818CF8" opacity="0.7">NEXUS</text>
+          <text x="228" y="108" font-family="Space Mono,monospace" font-size="7" fill="#34D399" opacity="0.7">ISS</text>
+          <text x="148" y="41" font-family="Space Mono,monospace" font-size="7" fill="#F59E0B" opacity="0.7">ASTRA</text>
+        </svg>
+      </div>
     </div>
 
     <!-- Explorer v2 -->
@@ -1030,50 +1066,7 @@ footer a:hover{color:var(--indigo-glow)}
   draw();
 })();
 
-/* ── NEXUS ORBITAL VISUAL ── */
-(function(){
-  const vis=document.getElementById('nexus-vis');
-  if(!vis)return;
-  const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');
-  svg.setAttribute('viewBox','0 0 280 210');
-  svg.setAttribute('width','100%');
-  svg.setAttribute('height','100%');
-  svg.style.display='block';
 
-  const rings=[
-    {r:85,color:'#6366F1',speed:18,dots:[{color:'#818CF8'},{color:'#34D399'}]},
-    {r:62,color:'#3D3F9E',speed:28,dots:[{color:'#F59E0B'}]},
-    {r:40,color:'#1E2840',speed:12,dots:[{color:'#6366F1'},{color:'#818CF8'}]},
-  ];
-
-  rings.forEach(ring=>{
-    const cx=140,cy=105;
-    const circle=document.createElementNS('http://www.w3.org/2000/svg','circle');
-    circle.setAttribute('cx',cx);circle.setAttribute('cy',cy);
-    circle.setAttribute('r',ring.r);circle.setAttribute('fill','none');
-    circle.setAttribute('stroke',ring.color);circle.setAttribute('stroke-width','0.8');
-    svg.appendChild(circle);
-
-    ring.dots.forEach((dot,di)=>{
-      const g=document.createElementNS('http://www.w3.org/2000/svg','g');
-      const initAngle=(di/ring.dots.length)*360;
-      const style=`animation: orbit-spin ${ring.speed}s linear infinite; transform-origin: ${cx}px ${cy}px; transform: rotate(${initAngle}deg);`;
-      g.setAttribute('style',style);
-      const c=document.createElementNS('http://www.w3.org/2000/svg','circle');
-      c.setAttribute('cx',cx);c.setAttribute('cy',cy-ring.r);
-      c.setAttribute('r','3.5');c.setAttribute('fill',dot.color);
-      g.appendChild(c);svg.appendChild(g);
-    });
-  });
-
-  /* centre dot */
-  const c=document.createElementNS('http://www.w3.org/2000/svg','circle');
-  c.setAttribute('cx','140');c.setAttribute('cy','105');
-  c.setAttribute('r','5');c.setAttribute('fill','#6366F1');
-  svg.appendChild(c);
-
-  vis.appendChild(svg);
-})();
 </script>
 
 </body>
